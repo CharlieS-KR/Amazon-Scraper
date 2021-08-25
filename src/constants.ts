@@ -1,4 +1,4 @@
-export interface IAmazonResponse {
+export interface IItemResponse {
   name: string
   product_information: object
   brand: string
