@@ -5,17 +5,19 @@ import Router from 'koa-router'
 import routes from './routes'
 
 const server: Koa = new Koa()
-const port = process.env.PORT ?? 8085
+const port = 8080
 server.use(bodyParser())
 server.use(cors())
 
 const router: Router = new Router()
 
-router.get('/', (ctx: Context) => {
+router.get('/', (ctx: Context, next: Next) => {
   ctx.status = 200
   ctx.body = { status: 'ok ' }
+  next()
 })
 
+server.use(router.routes())
 server.use(routes)
 
 server.listen(port, () => {
