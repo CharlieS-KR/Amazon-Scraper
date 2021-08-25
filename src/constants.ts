@@ -34,3 +34,18 @@ export interface ICustomizationOption {
   price: number
   image: string
 }
+
+export interface IOffersResponse {
+  item: IOfferItem
+  listings: object[]
+  pagination: any[]
+}
+
+export interface IOfferItem {
+  name: string
+  brand: string
+  product_information: object
+  image: string
+  average_rating: number
+  total_reviews: number
+}
